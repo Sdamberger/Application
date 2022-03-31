@@ -1,0 +1,54 @@
+#include <stdio.h> // Preprocessor 
+#include <stdlib.h> // Standard Library
+#include <time.h> // Time and Date functions
+#include <stdbool.h>
+
+#define ROCK 1 // Defined Constants
+#define PAPER 2 // Defined Constants
+#define SCISSORS 3 // Defined Constants
+
+int main() // Main
+{
+    srand(time(NULL)); // Uses current time to generate random numbers
+
+    int player_move = 0;
+    int ai_move = 0;
+    bool draw = false;
+
+    do
+    {
+        printf("1 for Rock\n"); // Player throw
+        printf("2 for Paper\n");// Player throw
+        printf("3 for Scissors\n");// Player throw
+        scanf_s("%d", &player_move);
+
+        ai_move = (rand() % 3) + 1; // Allows for the computer to choose a number between 1-3, which will determine their roll
+
+        // output the AI's throw to the player
+        if (ai_move == ROCK) // Computers roll printed
+            printf("\nComputer chooses ROCK.\n");// Computers roll printed
+        else if (ai_move == PAPER) // Computers roll
+            printf("\nComputer chooses PAPER.\n");// Computers roll printed
+        else if (ai_move == SCISSORS) // Computers roll
+            printf("\nComputer chooses SCISSORS.\n");// Computers roll printed
+
+        draw = false;
+        if (player_move == ROCK && ai_move == SCISSORS) // Outcomes
+            printf("\nROCK beats SCISSORS. YOU WIN.\n\n");// Outcomes printed
+        else if (player_move == ROCK && ai_move == PAPER)// Outcomes
+            printf("\nPAPER beats ROCK. YOU LOSE.\n\n");// Outcomes printed
+        else if (player_move == SCISSORS && ai_move == PAPER)// Outcomes
+            printf("\nSCISSORS beats PAPER. YOU WIN.\n\n");// Outcomes printed
+        else if (player_move == SCISSORS && ai_move == ROCK)// Outcomes
+            printf("\nROCK beats SCISSORS. YOU LOSE.\n\n");// Outcomes printed
+        else if (player_move == PAPER && ai_move == ROCK)// Outcomes
+            printf("\nPAPER beats ROCK. YOU WIN.\n\n"); // Outcomes printed
+        else if (player_move == PAPER && ai_move == SCISSORS)// Outcomes
+            printf("\nSCISSORS beats PAPER. YOU LOSE.\n\n");
+
+
+    } while (draw);
+
+    return 0;
+
+}
