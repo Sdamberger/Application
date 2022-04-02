@@ -45,7 +45,10 @@ int main() // Main
             printf("\nPAPER beats ROCK. YOU WIN.\n\n"); // Outcomes printed
         else if (player_move == PAPER && ai_move == SCISSORS)// Outcomes
             printf("\nSCISSORS beats PAPER. YOU LOSE.\n\n");
-
+        else
+        {
+            draw=true;
+        }
 
     } while (draw);
 
