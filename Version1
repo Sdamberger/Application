@@ -7,6 +7,7 @@
 #define PAPER 2 // Defined Constants
 #define SCISSORS 3 // Defined Constants
 #define FIRE 4
+#define Hammer 5
 
 int main() // Main
 {
@@ -22,9 +23,11 @@ int main() // Main
         printf("2 for Paper\n");// Player throw
         printf("3 for Scissors\n");// Player throw
         printf("4 for Fire\n");// Player throw
+        printf("5 for Hammer");
+        
         scanf_s("%d", &player_move);
 
-        ai_move = (rand() % 3) + 1; // Allows for the computer to choose a number between 1-3, which will determine their roll
+        ai_move = (rand() % 5) + 1; // Allows for the computer to choose a number between 1-3, which will determine their roll
 
         // output the AI's throw to the player
         if (ai_move == ROCK) // Computers roll printed
@@ -35,6 +38,8 @@ int main() // Main
             printf("\nComputer chooses SCISSORS.\n");// Computers roll printed
         else if (ai_move == FIRE)
             printf("\nComputer chooses FIRE.\n");
+         else if (ai_move == HAMMER)
+            printf("\nComputer chooses HAMMER.\n");
 
         draw = false;
         if (player_move == ROCK && ai_move == SCISSORS) // Outcomes
@@ -49,12 +54,20 @@ int main() // Main
             printf("\nPAPER beats ROCK. YOU WIN.\n\n"); // Outcomes printed
         else if (player_move == PAPER && ai_move == SCISSORS)// Outcomes
             printf("\nSCISSORS beats PAPER. YOU LOSE.\n\n");
-         else if (player_move == FIRE && ai_move == SCISSORS)// Outcomes
+        else if (player_move == FIRE && ai_move == SCISSORS)// Outcomes
             printf("\nFIRE beats SCISSORS. YOU WIN.\n\n");
         else if (player_move == FIRE && ai_move == PAPER)// Outcomes
             printf("\nFIRE beats PAPER. YOU WIN.\n\n");
         else if (player_move == FIRE && ai_move == ROCK)// Outcomes
             printf("\nRock beats FIRE. YOU LOSE.\n\n");
+        else if (player_move == HAMMER && ai_move == ROCK)// Outcomes
+            printf("\nROCK beats HAMMER. YOU WIN.\n\n");
+        else if (player_move == HAMMER && ai_move == SCISSORS)// Outcomes
+            printf("\nHAMMER beats SCISSORS. YOU WIN.\n\n");
+        else if (player_move == HAMMER && ai_move == PAPER)// Outcomes
+            printf("\nPAPER beats HAMMER. YOU LOSE.\n\n");
+        else if (player_move == HAMMER && ai_move == FIRE)// Outcomes
+            printf("\nFIRE beats HAMMER. YOU LOSE.\n\n");
         else
         {
             draw=true;
